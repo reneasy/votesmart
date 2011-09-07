@@ -43,7 +43,7 @@ module VoteSmart
     end
     
     # Gets a list of bills that fit the criteria
-    def self.get_bills_by_official_category can_id, category_id, office_id = 'NA', year = 'NA'
+    def self.get_bills_by_official_category can_id, category_id, office_id = nil, year = nil
       request("Votes.getByOfficial", "candidateId" => can_id, "categoryId" => category_id, "officeId" => office_id, "year" => year)
     end
     
