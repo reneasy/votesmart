@@ -4,7 +4,7 @@ module VoteSmart
     
     # Returns a list of categories with votes assigned for the year and state provided
     def self.get_categories year, state_id = 'NA'
-      request("Votes.getCategories", "stateId" => state_id)
+      request("Votes.getCategories", "year" => year, "stateId" => state_id)
     end
     
     # Returns detailed bill information
@@ -43,8 +43,8 @@ module VoteSmart
     end
     
     # Gets a list of bills that fit the criteria
-    def self.get_bills_by_official_category can_id, category_id
-      request("Votes.getBillsByOfficialCategory", "candidateId" => can_id, "categoryId" => category_id)
+    def self.get_bills_by_official_category can_id, category_id, office_id = 'NA', year = 'NA'
+      request("Votes.getByOfficial", "candidateId" => can_id, "categoryId" => category_id, "officeId" => office_id, "year" => year)
     end
     
     # Gets a list of bills that fit the criteria
